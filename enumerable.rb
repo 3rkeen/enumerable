@@ -15,6 +15,17 @@ module Enumerable
   end
   end
 
+  def my_select
+  return to_enum :my_select unless block_given?
+  result = []  
+  self.my_each do |i|
+  if yield(i) === true
+      result.push(i)
+  end
+  end
+  result
+  end
+
 end
 
-["as", "ads", "das"].my_each_with_index {|x, i| puts x if i.even?}
+p [1, 2, 3, 4, 5].my_select {|i| i < 4}
