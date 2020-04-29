@@ -26,6 +26,28 @@ module Enumerable
   result
   end
 
+  def my_all?
+      
+      result = true
+      if block_given?
+      self.my_each do |i|
+          if yield(i) == false
+          return result = false
+          end
+      end
+  else
+      self.my_each do |i|
+          if i == false
+          result = false
+          end
+      end
+  
+  end
+      result
+  end
+  def my_any?
+  
+  end
 end
 
-p [1, 2, 3, 4, 5].my_select {|i| i < 4}
+p [1, 2, false, 4, 5].my_all?
