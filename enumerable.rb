@@ -7,4 +7,4 @@ module Enumerable
     end
   end
 
- p [1, 2, true, 4, 5].my_all? 
+ p [1, 2, 3, 4, 5].my_each {|i| puts i}
